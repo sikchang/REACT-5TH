@@ -72,7 +72,7 @@ export function RouterProvider({ routes, navigation }: RouterProviderProps) {
       if (route) {
         document.title = route.title;
         // console.log( route.element );
-        
+
         setRouteElement(route.element);
       } else {
         setRouteElement(<NotFound />);
@@ -115,8 +115,8 @@ export function RouterProvider({ routes, navigation }: RouterProviderProps) {
   );
 }
 // eslint-disable-next-line react-refresh/only-export-components
-export function useRouter(){
-    const ctx = useContext(RouterContext);
+export function useRouter() {
+  const ctx = useContext(RouterContext);
   if (!ctx)
     throw new Error("useRouter는 RouterProvider 안에서만 사용해야 합니다.");
   return ctx;
