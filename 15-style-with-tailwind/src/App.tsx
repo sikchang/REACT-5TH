@@ -79,7 +79,7 @@ function App() {
 
       <Card
         type="primary"
-        logoSrc="/facebook.svg"
+        logoSrc="facebook"
         rate="$120/hr"
         title="Senior UI Developer"
         company="Facebook"
@@ -87,7 +87,7 @@ function App() {
 
       <Card
         type="secondary"
-        logoSrc="/google.svg"
+        logoSrc="google"
         rate="$120/hr"
         title="Senior UI Developer"
         company="Google"
@@ -95,10 +95,11 @@ function App() {
 
       <Card
         type="tertiary"
-        logoSrc="/airbnb.svg"
+        logoSrc="airbnb"
         rate="$120/hr"
         title="Senior UI Developer"
         company="Airbnb"
+        className="max-w-[400px]"
       />
     </div>
   );
