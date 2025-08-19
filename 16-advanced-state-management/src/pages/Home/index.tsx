@@ -1,6 +1,8 @@
 import Divider from '@/components/Divider';
 import Counter from '@/miniApp/Counter';
+import { useCounterStore } from '@/miniApp/Counter/@store';
 import Counter_ from '@/miniApp/Counter/index_';
+import CounterReducer from '@/miniApp/Counter/usingCounterReducer';
 import AppLink from '@/pages/Home/AppLink';
 // import { Helmet } from '@dr.pogodin/react-helmet';
 
@@ -32,6 +34,9 @@ const htmlTag = (
 
 
 function Home() {
+
+  // const [reset, setStep] = useCounterStore((state) => [state.reset, state.setStep]);
+
   return (
     <>
       <section id="page">
@@ -71,7 +76,20 @@ function Home() {
           </h2>
           <p>간단한 카운터 앱의 상태를 Zustand을 사용해 관리합니다.</p>
 
-          <Counter />
+          <Counter className='mb-3'/>
+
+          {/* reset */}
+          <button type="button"  className="mb-3 px-3 py-1 border border-accent rounded" > reset </button>
+
+          {/* setStep */}
+          <input type="number"  className='border border-accent px-2 py-1' placeholder='step값을 입력해주세요' />
+
+          <Divider />
+
+          <h2 lang="en" className='uppercase'>Counter</h2>
+          <p>간단한 카운터 앱의 상태를 리듀서를 사용해 관리합니다.</p>
+
+          <CounterReducer />
 
         </div>
       </section>
