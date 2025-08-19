@@ -1,0 +1,25 @@
+
+
+#page{
+
+  .learn{
+    @apply flex flex-col items-center;
+    margin-block: 20px;
+
+    h1{
+      @apply mb-4;
+    }
+
+    h2{
+      @apply mt-4 mb-2;
+    }
+
+    p{
+      @apply mb-4;
+    }
+
+    ul{
+      @apply list-disc list-inside;
+    }
+  }
+}
