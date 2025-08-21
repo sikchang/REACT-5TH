@@ -1,9 +1,14 @@
 import Divider from '@/components/Divider';
 import Counter from '@/miniApp/Counter';
-import { useCounterStore } from '@/miniApp/Counter/@store';
-import Counter_ from '@/miniApp/Counter/index_';
-import CounterReducer from '@/miniApp/Counter/usingCounterReducer';
+// Counter-related imports temporarily disabled for Switch debugging
+// import { useCounterStore } from '@/miniApp/Counter/@store';
+// import Counter_ from '@/miniApp/Counter/index_';
+// import CounterReducer from "@/miniApp/Counter/UsingCounterReducer";
+import Switcher from '@/miniApp/Switcher/Switch';
 import AppLink from '@/pages/Home/AppLink';
+// import { useShallow } from 'zustand/shallow';
+// import type React from 'react';
+import { useState } from 'react';
 // import { Helmet } from '@dr.pogodin/react-helmet';
 
 const htmlTag = (
@@ -36,6 +41,10 @@ const htmlTag = (
 function Home() {
 
   // const [reset, setStep] = useCounterStore((state) => [state.reset, state.setStep]);
+  // Temporarily disable complex selector to simplify typechecking during Switch debug
+  // const [reset, setStep] = useCounterStore((s) => [s.reset, s.setStep], useShallow)
+
+  const [dark, setDark] = useState(true);
 
   return (
     <>
@@ -67,7 +76,7 @@ function Home() {
           </h2>
           <p>간단한 카운터 앱의 상태를 CustomHook을 사용해 관리합니다.</p>
 
-          <Counter_ />
+          {/* <Counter_ /> */}
 
           <Divider />
 
@@ -76,20 +85,50 @@ function Home() {
           </h2>
           <p>간단한 카운터 앱의 상태를 Zustand을 사용해 관리합니다.</p>
 
-          <Counter className='mb-3'/>
+          <Counter className="mb-3" />
 
-          {/* reset */}
-          <button type="button"  className="mb-3 px-3 py-1 border border-accent rounded" > reset </button>
+          {/* reset and setStep controls temporarily disabled during Switch debug
+          <button
+            type="button"
+            className="mb-3 px-3 py-1 border border-accent rounded"
+            onClick={() => reset()}>
+            reset
+          </button>
 
-          {/* setStep */}
-          <input type="number"  className='border border-accent px-2 py-1' placeholder='step값을 입력해주세요' />
+          <input
+            type="number"
+            className="border border-accent px-2 py-1"
+            placeholder="step값을 입력해주세요"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setStep(Number(e.target.value))}
+          />
+          */}
 
           <Divider />
 
-          <h2 lang="en" className='uppercase'>Counter</h2>
+          <h2 lang="en" className="uppercase">
+            Counter
+          </h2>
           <p>간단한 카운터 앱의 상태를 리듀서를 사용해 관리합니다.</p>
 
-          <CounterReducer />
+          {/* <CounterReducer /> */}
+
+          <Divider />
+
+          <h2 lang="en" className="uppercase">
+            Swutcher
+          </h2>
+          <p>Switch의 상태를 CustomHook or 리듀서를 사용해 관리합니다.</p>
+          <Switcher size='lg' checked={dark} onChange={setDark} />
+
+          <Divider />
+
+          <Divider />
+
+          <Divider />
+
+          <Divider />
+
+          <Divider />
 
         </div>
       </section>
