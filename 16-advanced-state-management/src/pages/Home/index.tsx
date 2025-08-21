@@ -5,6 +5,7 @@ import Counter from '@/miniApp/Counter';
 // import Counter_ from '@/miniApp/Counter/index_';
 // import CounterReducer from "@/miniApp/Counter/UsingCounterReducer";
 import Switcher from '@/miniApp/Switcher/Switch';
+import TaskManager_ from '@/miniApp/TaskManager/TaskManager_';
 import AppLink from '@/pages/Home/AppLink';
 // import { useShallow } from 'zustand/shallow';
 // import type React from 'react';
@@ -114,13 +115,17 @@ function Home() {
 
           <Divider />
 
-          <h2 lang="en" className="uppercase">
-            Swutcher
-          </h2>
+          <h2 lang="en" className="uppercase"> Switcher </h2>
           <p>Switch의 상태를 CustomHook or 리듀서를 사용해 관리합니다.</p>
+
           <Switcher size='lg' checked={dark} onChange={setDark} />
+          <p className='uppercase'>{ dark ? 'dark' : 'light' }</p>
 
           <Divider />
+
+          <h2 lang="en" className="uppercase"> Task Manager </h2>
+          <p>테스크 매니저 앱의 상태를 컨텍스트 + 리듀서를 사용해 관리합니다.</p>
+          <TaskManager_ />
 
           <Divider />
 
